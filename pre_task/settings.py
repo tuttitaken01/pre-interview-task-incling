@@ -17,7 +17,7 @@ SECRET_KEY = 'django-insecure-9qd-4!*$=s%=3rb+pktsa&btd^v1gx55)6phwb-vaixjdtm0nx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pre-interview.onrender.com']
 
 
 # Application definition
