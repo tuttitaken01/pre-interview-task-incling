@@ -20,6 +20,7 @@ PGPASSWORD=bE5s7Jt6K7kIW6wTWB0hY9wRm4Bd0oiP psql -U pre_interview_task_user -h d
 PGPASSWORD=bE5s7Jt6K7kIW6wTWB0hY9wRm4Bd0oiP psql -U pre_interview_task_user -h dpg-cggr8264daddcg5h9nfg-a pre_interview_task -c 'DROP TABLE IF EXISTS task_tasks CASCADE'
 PGPASSWORD=bE5s7Jt6K7kIW6wTWB0hY9wRm4Bd0oiP psql -U pre_interview_task_user -h dpg-cggr8264daddcg5h9nfg-a pre_interview_task -c 'DROP TABLE IF EXISTS task_types'
 PGPASSWORD=bE5s7Jt6K7kIW6wTWB0hY9wRm4Bd0oiP psql -U pre_interview_task_user -h dpg-cggr8264daddcg5h9nfg-a pre_interview_task -c 'DROP TABLE IF EXISTS tile_status CASCADE'
+PGPASSWORD=bE5s7Jt6K7kIW6wTWB0hY9wRm4Bd0oiP psql -U pre_interview_task_user -h dpg-cggr8264daddcg5h9nfg-a pre_interview_task -c 'DROP TABLE IF EXISTS tile_tiles'
 
 
 python manage.py makemigrations task
