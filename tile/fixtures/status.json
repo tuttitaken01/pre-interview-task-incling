@@ -1,0 +1,23 @@
+[
+    {
+        "model": "tile.Status",
+        "status_id": 1,
+        "fields": {
+            "status": "live"
+        } 
+    },
+    {
+        "model": "tile.Status",
+        "status_id": 2,
+        "fields": {
+            "status": "pending"
+        } 
+    },
+    {
+        "model": "tile.Status",
+        "status_id": 3,
+        "fields": {
+            "status": "archived"
+        } 
+    }
+]

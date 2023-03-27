@@ -1,0 +1,32 @@
+[
+    {
+        "model": "task.Tasks",
+        "task_id": 1,
+        "fields": {
+            "title": "check systems",
+            "order": 1,
+            "description": "plan a checklist and share",
+            "type": 1
+        } 
+    },
+    {
+        "model": "task.Tasks",
+        "task_id": 2,
+        "fields": {
+            "title": "talk to manager",
+            "order": 2,
+            "description": "keep management up to date",
+            "type": 3
+        } 
+    },
+    {
+        "model": "task.Tasks",
+        "task_id": 3,
+        "fields": {
+            "title": "edit backend API",
+            "order": 3,
+            "description": "take feed back and apply modifications",
+            "type": 2
+        } 
+    }
+]

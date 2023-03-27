@@ -1,0 +1,23 @@
+[
+    {
+        "model": "task.Types",
+        "id": 1,
+        "fields": {
+            "type": "survey"
+        } 
+    },
+    {
+        "model": "task.Types",
+        "id": 2,
+        "fields": {
+            "type": "discussion"
+        } 
+    },
+    {
+        "model": "task.Types",
+        "id": 3,
+        "fields": {
+            "type": "diary"
+        } 
+    }
+]
