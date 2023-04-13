@@ -1,5 +1,4 @@
 from pathlib import Path
-from corsheaders.defaults import default_methods
 import os
 import dj_database_url
 
@@ -50,7 +49,13 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ALLOWED_METHODS = list(default_methods)
+CORS_ALLOWED_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+]
 
 ROOT_URLCONF = 'pre_task.urls'
 
