@@ -19,4 +19,4 @@ class TilesSerializer(serializers.ModelSerializer):
     )
     class Meta:
         model = Tiles
-        fields = ('id', 'tasks', 'launch_date', 'status')
+        fields = ('id', 'launch_date', 'status')

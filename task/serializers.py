@@ -9,7 +9,7 @@ class TypeSerializer(serializers.ModelSerializer):
 
 class TaskSerializer(serializers.ModelSerializer):
     type = serializers.SlugRelatedField(
-        many = True,
+        many = False,
         read_only = True,
         slug_field=('type', 'tile_id')
     )
