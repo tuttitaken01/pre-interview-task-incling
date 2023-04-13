@@ -54,6 +54,8 @@ CORS_ALLOWED_ORIGINS = [
     "https://pre-interview.onrender.com"
 ]
 
+CORS_ALLOW_ALL_ORIGINS = True
+
 CORS_ALLOWED_METHODS = list(default_methods)
 
 ROOT_URLCONF = 'pre_task.urls'
