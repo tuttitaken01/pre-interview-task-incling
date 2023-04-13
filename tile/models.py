@@ -9,3 +9,4 @@ class Tiles(models.Model):
 #    tasks = models.ManyToManyField(Tasks, related_name='task_title')
     launch_date = models.CharField(max_length=20)
     status = models.ForeignKey(Status, on_delete=models.DO_NOTHING)
+    img = models.CharField(max_length=200)
