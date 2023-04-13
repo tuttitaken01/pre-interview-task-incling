@@ -1,3 +1,4 @@
+from django.urls import path, include
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
@@ -14,5 +15,7 @@ router.register(r'status', view_2.StatusViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('tasks/<int:pk>', view_1.task_detail),
+    path('tiles/<int:pk>', view_2.tile_detail),
 ]
