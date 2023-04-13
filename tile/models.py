@@ -1,5 +1,5 @@
 from django.db import models
-from task.models import Tasks
+# from task.models import Tasks
 
 # Create your models here.
 class Status(models.Model):
