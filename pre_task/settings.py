@@ -51,7 +51,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "https://pre-interview.onrender.com/"
+    "https://pre-interview.onrender.com"
 ]
 
 CORS_ALLOWED_METHODS = list(default_methods)
