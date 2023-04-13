@@ -49,12 +49,9 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "https://pre-interview.onrender.com"
-]
-
 CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOWED_METHODS = list(default_methods)
 
