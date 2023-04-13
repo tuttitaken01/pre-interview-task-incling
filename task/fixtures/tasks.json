@@ -7,7 +7,8 @@
             "order": 1,
             "description": "plan a checklist and share",
             "type": 1,
-            "tile_id": 1
+            "tile_id": 1,
+            "img": "https://www.raf.mod.uk/index.cfm/_api/asset/image/?filePath=/raf-beta/assets/Image/3E5BDFC3-DB9C-465E-99C069A25971BD19-ACSSU-20220818-0152-EX%20PITCH%20BLACK-0451.JPG"
         } 
     },
     {
@@ -18,7 +19,8 @@
             "order": 2,
             "description": "keep management up to date",
             "type": 3,
-            "tile_id": 1
+            "tile_id": 1,
+            "img": "https://i.natgeofe.com/k/6d43e144-65b5-411f-8b69-129dc89ef083/a-8-hubble-space-telescope-mystic-mountain_16x9.jpg"
         } 
     },
     {
@@ -29,7 +31,8 @@
             "order": 3,
             "description": "take feed back and apply modifications",
             "type": 2,
-            "tile_id": 2
+            "tile_id": 2,
+            "img": "https://www.treehugger.com/thmb/nSp8ESJ1N6zq_bsTVL_MoSrKAqA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1273584292-cbcd5f85f4c646d58f7a7fa158dcaaeb.jpg"
         } 
     }
 ]
