@@ -1,4 +1,5 @@
 from pathlib import Path
+from corsheaders.defaults import default_methods
 import os
 import dj_database_url
 
@@ -52,6 +53,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "https://pre-interview.onrender.com/"
 ]
+
+CORS_ALLOWED_METHODS = list(default_methods)
 
 ROOT_URLCONF = 'pre_task.urls'
 
