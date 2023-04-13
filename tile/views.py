@@ -15,15 +15,19 @@ class TilesViewSet(viewsets.ModelViewSet):
 
 
 @api_view(['GET', 'POST', 'PATCH', 'DELETE'])
-def tile_detail(request, pk):
-    try:
-        tile = Tiles.objects.get(pk=pk)
-    except Tiles.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-
+def tile_detail(request, pk=None):
     if request.method == 'GET':
-        serializer = TilesSerializer(tile, context={'request': request})
-        return Response(serializer.data)
+        if pk is not None:
+            try:
+                tile = Tiles.objects.get(pk=pk)
+            except Tiles.DoesNotExist:
+                return Response(status=status.HTTP_404_NOT_FOUND)
+            serializer = TilesSerializer(tile, context={'request': request})
+            return Response(serializer.data)
+        else:
+            tiles = Tiles.objects.all()
+            serializer = TilesSerializer(tiles, many=True, context={'request': request})
+            return Response(serializer.data)
 
     elif request.method == 'POST':
         serializer = TilesSerializer(data=request.data, context={'request': request})
@@ -33,12 +37,26 @@ def tile_detail(request, pk):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'PATCH':
-        serializer = TilesSerializer(tile, data=request.data, partial=True, context={'request': request})
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        if pk is not None:
+            try:
+                tile = Tiles.objects.get(pk=pk)
+            except Tiles.DoesNotExist:
+                return Response(status=status.HTTP_404_NOT_FOUND)
+            serializer = TilesSerializer(tile, data=request.data, partial=True, context={'request': request})
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'DELETE':
-        tile.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        if pk is not None:
+            try:
+                tile = Tiles.objects.get(pk=pk)
+            except Tiles.DoesNotExist:
+                return Response(status=status.HTTP_404_NOT_FOUND)
+            tile.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)

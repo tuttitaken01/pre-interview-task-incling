@@ -15,15 +15,19 @@ class TaskViewSet(viewsets.ModelViewSet):
 
 
 @api_view(['GET', 'POST', 'PATCH', 'DELETE'])
-def task_detail(request, pk):
-    try:
-        task = Tasks.objects.get(pk=pk)
-    except Tasks.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-
+def task_detail(request, pk=None):
     if request.method == 'GET':
-        serializer = TaskSerializer(task, context={'request': request})
-        return Response(serializer.data)
+        if pk is not None:
+            try:
+                task = Tasks.objects.get(pk=pk)
+            except Tasks.DoesNotExist:
+                return Response(status=status.HTTP_404_NOT_FOUND)
+            serializer = TaskSerializer(task, context={'request': request})
+            return Response(serializer.data)
+        else:
+            tasks = Tasks.objects.all()
+            serializer = TaskSerializer(tasks, many=True, context={'request':request})
+            return Response(serializer.data)
 
     elif request.method == 'POST':
         serializer = TaskSerializer(data=request.data, context={'request': request})
@@ -33,12 +37,26 @@ def task_detail(request, pk):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'PATCH':
-        serializer = TaskSerializer(task, data=request.data, partial=True, context={'request': request})
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        if pk is not None:
+            try:
+                task = Tasks.objects.get(pk=pk)
+            except Tasks.DoesNotExist:
+                return Response(status=status.HTTP_404_NOT_FOUND)
+            serializer = TaskSerializer(task, data=request.data, partial=True, context={'request': request})
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'DELETE':
-        task.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        if pk is not None:
+            try:
+                task = Tasks.objects.get(pk=pk)
+            except Tasks.DoesNotExist:
+                return Response(status=status.HTTP_404_NOT_FOUND)
+            task.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
