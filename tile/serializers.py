@@ -7,11 +7,11 @@ class StatusSerializer(serializers.ModelSerializer):
         fields = ('id', 'status')
 
 class TilesSerializer(serializers.ModelSerializer):
-    tasks = serializers.SlugRelatedField(
-        many = True,
-        read_only = True,
-        slug_field = 'title'
-    )
+#    tasks = serializers.SlugRelatedField(
+#        many = True,
+#        read_only = True,
+#        slug_field = 'title'
+#    )
     status = serializers.SlugRelatedField(
         many = False,
         read_only = True,
