@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     'task.apps.TaskConfig',
     'tile.apps.TileConfig',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
