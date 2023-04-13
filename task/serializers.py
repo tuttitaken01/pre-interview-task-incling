@@ -11,7 +11,7 @@ class TaskSerializer(serializers.ModelSerializer):
     type = serializers.SlugRelatedField(
         many = True,
         read_only = True,
-        slug_fields = ('type', 'tile_id')
+        slug_fields=('type', 'tile_id')
     )
     class Meta:
         model = Tasks
