@@ -11,4 +11,5 @@ class Tasks(models.Model):
     description = models.CharField(max_length = 150)
     type = models.ForeignKey(Types, on_delete=models.DO_NOTHING)
     tile_id = models.ForeignKey(Tiles, on_delete=models.DO_NOTHING)
+    img = models.CharField(max_length = 200)
 
