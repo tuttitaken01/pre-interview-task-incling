@@ -1,4 +1,5 @@
 from django.db import models
+from tile.models import Tiles
 
 # Create your models here.
 class Types(models.Model):
@@ -9,4 +10,5 @@ class Tasks(models.Model):
     order = models.IntegerField()
     description = models.CharField(max_length = 150)
     type = models.ForeignKey(Types, on_delete=models.DO_NOTHING)
+    tyle = models.ForeignKey(Tiles, on_delete=models.DO_NOTHING)
 

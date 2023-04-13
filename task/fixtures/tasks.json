@@ -6,7 +6,8 @@
             "title": "check systems",
             "order": 1,
             "description": "plan a checklist and share",
-            "type": 1
+            "type": 1,
+            "tile_id": 1
         } 
     },
     {
@@ -16,7 +17,8 @@
             "title": "talk to manager",
             "order": 2,
             "description": "keep management up to date",
-            "type": 3
+            "type": 3,
+            "tile_id": 1
         } 
     },
     {
@@ -26,7 +28,8 @@
             "title": "edit backend API",
             "order": 3,
             "description": "take feed back and apply modifications",
-            "type": 2
+            "type": 2,
+            "tile_id": 2
         } 
     }
 ]
