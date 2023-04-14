@@ -15,11 +15,11 @@ class TaskViewSet(viewsets.ModelViewSet):
 
 
 @api_view(['GET', 'POST', 'PATCH', 'DELETE'])
-def task_detail(request, task_id=None):
+def task_detail(request, id=None):
     if request.method == 'GET':
-        if task_id is not None:
+        if id is not None:
             try:
-                task = Tasks.objects.get(task_id=task_id)
+                task = Tasks.objects.get(id=id)
             except Tasks.DoesNotExist:
                 return Response(status=status.HTTP_404_NOT_FOUND)
             serializer = TaskSerializer(task, context={'request': request})
@@ -37,9 +37,9 @@ def task_detail(request, task_id=None):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'PATCH':
-        if task_id is not None:
+        if id is not None:
             try:
-                task = Tasks.objects.get(task_id=task_id)
+                task = Tasks.objects.get(id=id)
             except Tasks.DoesNotExist:
                 return Response(status=status.HTTP_404_NOT_FOUND)
             serializer = TaskSerializer(task, data=request.data, partial=True, context={'request': request})
@@ -51,9 +51,9 @@ def task_detail(request, task_id=None):
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'DELETE':
-        if task_id is not None:
+        if id is not None:
             try:
-                task = Tasks.objects.get(task_id=task_id)
+                task = Tasks.objects.get(id=id)
             except Tasks.DoesNotExist:
                 return Response(status=status.HTTP_404_NOT_FOUND)
             task.delete()
