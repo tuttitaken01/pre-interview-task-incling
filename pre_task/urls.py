@@ -18,6 +18,6 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('tasks', view_1.task_detail),
     path('tiles', view_2.tile_detail),
-    path('tasks/<int:pk>', view_1.task_detail),
-    path('tiles/<int:pk>', view_2.tile_detail),
+    path('tasks/<int:id>', view_1.task_detail),
+    path('tiles/<int:id>', view_2.tile_detail),
 ]
