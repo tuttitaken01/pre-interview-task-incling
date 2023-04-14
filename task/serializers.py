@@ -12,6 +12,7 @@ class TaskSerializer(serializers.ModelSerializer):
         many = False,
         slug_field='type',
         queryset=Types.objects.all()
+        
     )
     class Meta:
         model = Tasks
