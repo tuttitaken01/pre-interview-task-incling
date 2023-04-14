@@ -30,6 +30,13 @@ def tile_detail(request, tile_id=None):
             return Response(serializer.data)
 
     elif request.method == 'POST':
+        id = request.data.get('status')
+        try:
+            tile_status = Status.object.get(status_id=id)
+        except Status.DoesNotExist:
+            return Response({'error': 'Invalid status'}, status.status.HTTP_400_BAD_REQUEST)
+        request.data['status'] = tile_status
+        
         serializer = TilesSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
             serializer.save()
