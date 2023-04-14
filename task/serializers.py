@@ -5,7 +5,7 @@ from .models import Tasks, Types
 class TypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Types
-        fields = ('id', 'type')
+        fields = ['id', 'type']
 
 class TaskSerializer(serializers.ModelSerializer):
     type = serializers.SlugRelatedField(
@@ -15,5 +15,5 @@ class TaskSerializer(serializers.ModelSerializer):
     )
     class Meta:
         model = Tasks
-        fields = ('id', 'title', 'order', 'description', 'type', 'tile_id', 'img')
+        fields = ['id', 'title', 'order', 'description', 'type', 'tile_id', 'img']
 
