@@ -15,11 +15,11 @@ class TilesViewSet(viewsets.ModelViewSet):
 
 
 @api_view(['GET', 'POST', 'PATCH', 'DELETE'])
-def tile_detail(request, pk=None):
+def tile_detail(request, tile_id=None):
     if request.method == 'GET':
-        if pk is not None:
+        if tile_id is not None:
             try:
-                tile = Tiles.objects.get(pk=pk)
+                tile = Tiles.objects.get(tile_id=tile_id)
             except Tiles.DoesNotExist:
                 return Response(status=status.HTTP_404_NOT_FOUND)
             serializer = TilesSerializer(tile, context={'request': request})
@@ -37,9 +37,9 @@ def tile_detail(request, pk=None):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'PATCH':
-        if pk is not None:
+        if tile_id is not None:
             try:
-                tile = Tiles.objects.get(pk=pk)
+                tile = Tiles.objects.get(tile_id=tile_id)
             except Tiles.DoesNotExist:
                 return Response(status=status.HTTP_404_NOT_FOUND)
             serializer = TilesSerializer(tile, data=request.data, partial=True, context={'request': request})
@@ -51,9 +51,9 @@ def tile_detail(request, pk=None):
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'DELETE':
-        if pk is not None:
+        if tile_id is not None:
             try:
-                tile = Tiles.objects.get(pk=pk)
+                tile = Tiles.objects.get(tile_id=tile_id)
             except Tiles.DoesNotExist:
                 return Response(status=status.HTTP_404_NOT_FOUND)
             tile.delete()
