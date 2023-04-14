@@ -10,7 +10,6 @@ class TypeSerializer(serializers.ModelSerializer):
 class TaskSerializer(serializers.ModelSerializer):
     type = serializers.SlugRelatedField(
         many = False,
-        read_only = True,
         slug_field='type',
         queryset=Types.objects.all()
     )
