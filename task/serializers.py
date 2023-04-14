@@ -8,11 +8,12 @@ class TypeSerializer(serializers.ModelSerializer):
         fields = ['id', 'type']
 
 class TaskSerializer(serializers.ModelSerializer):
-    type = serializers.SlugRelatedField(
-        many = False,
-        read_only = True,
-        slug_field='type'
-    )
+    type = TypeSerializer()
+    #type = serializers.SlugRelatedField(
+     #   many = False,
+      #  read_only = True,
+       # slug_field='type'
+    #)
     class Meta:
         model = Tasks
         fields = ['id', 'title', 'order', 'description', 'type', 'tile_id', 'img']
