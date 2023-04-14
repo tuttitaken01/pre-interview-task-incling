@@ -30,13 +30,6 @@ def task_detail(request, task_id=None):
             return Response(serializer.data)
 
     elif request.method == 'POST':
-        id = request.data.get('type')
-        try:
-            task_type = Types.object.get(type_id=id)
-        except Types.DoesNotExist:
-            return Response({'error': 'Invalid type id'}, status.status.HTTP_400_BAD_REQUEST)
-        request.data['type'] = task_type.type_id
-
         serializer = TaskSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
             serializer.save()
