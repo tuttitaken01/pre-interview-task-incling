@@ -4,7 +4,7 @@ from .models import Status, Tiles
 class StatusSerializer(serializers.ModelSerializer):
     class Meta:
         model = Status
-        fields = ['id', 'status']
+        fields = ('id', 'status')
 
 class TilesSerializer(serializers.ModelSerializer):
 #    tasks = serializers.SlugRelatedField(
@@ -19,4 +19,4 @@ class TilesSerializer(serializers.ModelSerializer):
     )
     class Meta:
         model = Tiles
-        fields = ['id', 'launch_date', 'status', 'img']
+        fields = ('id', 'launch_date', 'status', 'img')
